@@ -62,9 +62,9 @@ body.lang-en .caption.ro, body.lang-ro .caption.en { display: none; }
     
     /* Pe mobil: o bordură fină tip smartphone care maximizează spațiul */
     .phone-container { 
-        width: 94%; 
-        max-width: 400px; 
-        height: 75vh; 
+        width: 86%; /* Redus de la 94% pentru a lăsa spațiu stânga/dreapta */
+        max-width: 360px; 
+        height: 68vh; /* Redus proporțional de la 75vh */
         margin: 0 auto; 
         border: 6px solid #222; 
         border-radius: 20px; 
@@ -72,10 +72,23 @@ body.lang-en .caption.ro, body.lang-ro .caption.en { display: none; }
     }
     #blockly-iframe { 
         width: 133.3%; 
-        height: 100%; /* Lăsăm la 100% ca blocul de start să nu fie împins afară de zoom */
+        height: 100%; 
         zoom: 0.75; 
         transform: none; 
         position: relative; 
     }
     .media-box { margin: 0 auto; width: 100%; border-radius: 15px; }
+
+    /* Flow diagram pe un singur rând pe mobil */
+    .flow-diagram { 
+        flex-wrap: nowrap; 
+        gap: 3px; 
+        justify-content: center; 
+        font-size: 0.8rem;
+    }
+    .flow-diagram span { 
+        padding: 4px 6px; 
+        font-size: 0.65rem; 
+        white-space: nowrap; 
+    }
 }
