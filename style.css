@@ -60,15 +60,15 @@ body.lang-en .caption.ro, body.lang-ro .caption.en { display: none; }
     section { flex-direction: column !important; text-align: center; padding: 100px 0 60px 0; } 
     .text-side, .visual-side { padding: 0 5%; width: 100%; }
     
-    /* Pe mobil, scoatem marginea de "telefon fals" pentru a folosi tot ecranul util */
+    /* Pe mobil: o bordură fină tip smartphone care maximizează spațiul */
     .phone-container { 
-        width: 100%; 
-        max-width: 100%; 
+        width: 94%; 
+        max-width: 400px; 
         height: 65vh; 
-        margin: 0; 
-        border: none; 
-        border-radius: 0; 
-        box-shadow: none;
+        margin: 0 auto; 
+        border: 6px solid #222; 
+        border-radius: 20px; 
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
     #blockly-iframe { width: 100%; height: 100%; transform: none; position: relative; }
     .media-box { margin: 0 auto; width: 100%; border-radius: 15px; }
