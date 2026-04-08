@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogicBot | Programare pentru Viitor</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="lang-ro">
+
+    <header class="header">
+        <div class="logo">LOGICBOT</div>
+        <div class="lang-control">
+            <button id="btn-ro" class="lang-btn active" onclick="setLang('ro')">RO</button>
+            <button id="btn-en" class="lang-btn" onclick="setLang('en')">EN</button>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="text-side">
+            <h1 class="ro">Un partener în lumea logicii.</h1>
+            <h1 class="en">A partner in the world of logic.</h1>
+            <p class="ro">Creat din dorința de a aduce educația digitală mai aproape de copiii care au cea mai mare nevoie de ea. O jucărie cu suflet și inteligență.</p>
+            <p class="en">Born from the desire to bring digital education closer to the children who need it most. A toy with heart and intelligence.</p>
+        </div>
+        <div class="visual-side">
+            <div class="media-box">
+                <img src="poza-cute.jpg" alt="Robot">
+            </div>
+        </div>
+    </section>
+
+    <section id="grid" class="alt-bg reverse">
+        <div class="text-side">
+            <h1 class="ro">Misiunea: De la A la B.</h1>
+            <h1 class="en">Mission: From A to B.</h1>
+            <p class="ro">Scopul este simplu: copilul trebuie să ghideze robotul prin puzzle-uri pe plansă. <br><br>
+               <strong>Provocarea?</strong> Putem pune obstacole fizice. Dacă în fața lui există un obstacol, robotul nu va înainta, forțând copilul să găsească o nouă soluție logică.</p>
+            <p class="en">The goal is simple: the child guides the robot through puzzles on the grid. <br><br>
+               <strong>The challenge?</strong> Physical obstacles can be placed. If an obstacle is in front, the robot won't move, forcing the child to find a new logical solution.</p>
+        </div>
+        <div class="visual-side">
+            <div class="media-box">
+                <img src="poza-placa.jpg" alt="Grid Logic">
+            </div>
+        </div>
+    </section>
+
+    <section id="try">
+        <div class="text-side">
+            <h1 class="ro">Încearcă-l acum.</h1>
+            <h1 class="en">Try it now.</h1>
+            <p class="ro">Deoarece Flutter nu suportă nativ Blockly, am integrat un <strong>WebView</strong> care comunică bidirecțional cu robotul via Bluetooth.</p>
+            <p class="en">Since Flutter doesn't natively support Blockly, I've integrated a <strong>WebView</strong> that communicates bi-directionally with the robot via Bluetooth.</p>
+            
+            <div class="flow-diagram">
+                <span>Blockly Web</span> ➔ <span>WebView</span> ➔ <span>Flutter</span> ➔ <span>Arduino</span>
+            </div>
+            <p class="hint ro">💡 Click pe simulator pentru a activa blocurile.</p>
+            <p class="hint en">💡 Click the simulator to activate blocks.</p>
+        </div>
+        <div class="visual-side">
+            <div class="phone-container" id="phone-box">
+                <div class="iframe-overlay" id="overlay" onclick="activateIframe()"></div>
+<iframe 
+    src="https://catalincocosila.github.io/blockly-web/" 
+    id="blockly-iframe" 
+    scrolling="no" 
+    style="overflow:hidden;">
+</iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="app" class="alt-bg">
+        <div class="text-side">
+            <h1 class="ro">Interfața în Acțiune.</h1>
+            <h1 class="en">Interface in Action.</h1>
+            <p class="ro">Vezi cum blocurile de cod se transformă în instrucțiuni de mișcare, oferind un feedback vizual imediat copilului.</p>
+            <p class="en">See how code blocks turn into movement instructions, providing immediate visual feedback to the child.</p>
+        </div>
+        <div class="visual-side">
+            <div class="phone-container dark-frame">
+                <video autoplay muted loop playsinline>
+                    <source src="video-aplicatie.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <section id="final" class="reverse">
+        <div class="text-side">
+            <h1 class="ro">Momentul "Evrica".</h1>
+            <h1 class="en">The "Eureka" Moment.</h1>
+            <p class="ro">Când ochii robotului se aprind, succesul devine tangibil. Tehnologia devine o unealtă de explorare a minții.</p>
+            <p class="en">When the robot's eyes light up, success becomes tangible. Technology becomes a tool for exploring the mind.</p>
+        </div>
+        <div class="visual-side">
+            <div class="media-box">
+                <video autoplay muted loop playsinline>
+                    <source src="video-prezentare.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
