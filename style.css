@@ -64,7 +64,7 @@ body.lang-en .caption.ro, body.lang-ro .caption.en { display: none; }
     .phone-container { 
         width: 94%; 
         max-width: 400px; 
-        height: 75vh; /* Am mărit de la 65vh la 75vh ca să dăm mai mult spațiu vertical */
+        height: 75vh; 
         margin: 0 auto; 
         border: 6px solid #222; 
         border-radius: 20px; 
@@ -72,7 +72,7 @@ body.lang-en .caption.ro, body.lang-ro .caption.en { display: none; }
     }
     #blockly-iframe { 
         width: 133.3%; 
-        height: 133.3%; /* Compensăm exact zoom-ul de 0.75 (1 / 0.75 = 1.333) */
+        height: 100%; /* Lăsăm la 100% ca blocul de start să nu fie împins afară de zoom */
         zoom: 0.75; 
         transform: none; 
         position: relative; 
