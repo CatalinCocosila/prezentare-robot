@@ -57,8 +57,19 @@ body.lang-en .caption.ro, body.lang-ro .caption.en { display: none; }
 .hint { font-size: 0.9rem; color: var(--accent); font-weight: 500; }
 
 @media (max-width: 768px) { 
-    section { flex-direction: column !important; text-align: center; } 
-    .phone-container { width: 100%; max-width: 360px; height: 550px; margin: 0 auto; border-width: 8px; border-radius: 30px; }
+    section { flex-direction: column !important; text-align: center; padding: 100px 0 60px 0; } 
+    .text-side, .visual-side { padding: 0 5%; width: 100%; }
+    
+    /* Pe mobil, scoatem marginea de "telefon fals" pentru a folosi tot ecranul util */
+    .phone-container { 
+        width: 100%; 
+        max-width: 100%; 
+        height: 65vh; 
+        margin: 0; 
+        border: none; 
+        border-radius: 0; 
+        box-shadow: none;
+    }
     #blockly-iframe { width: 100%; height: 100%; transform: none; position: relative; }
-    .media-box { margin: 0 auto; }
+    .media-box { margin: 0 auto; width: 100%; border-radius: 15px; }
 }
