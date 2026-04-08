@@ -64,15 +64,15 @@ body.lang-en .caption.ro, body.lang-ro .caption.en { display: none; }
     .phone-container { 
         width: 94%; 
         max-width: 400px; 
-        height: 65vh; 
+        height: 75vh; /* Am mărit de la 65vh la 75vh ca să dăm mai mult spațiu vertical */
         margin: 0 auto; 
         border: 6px solid #222; 
         border-radius: 20px; 
         box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
     #blockly-iframe { 
-        width: 133%; 
-        height: 128%; /* Un pic mai puțin decât 133% pentru a ridica butonul de start, evitând tăierea lui */
+        width: 133.3%; 
+        height: 133.3%; /* Compensăm exact zoom-ul de 0.75 (1 / 0.75 = 1.333) */
         zoom: 0.75; 
         transform: none; 
         position: relative; 
