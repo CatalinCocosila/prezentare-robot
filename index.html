@@ -24,51 +24,64 @@
         <div class="text-side">
             <h1 class="ro">Un partener în lumea logicii.</h1>
             <h1 class="en">A partner in the world of logic.</h1>
-            <p class="ro">Acest robot a apărut dintr-o nevoie: îmi doream o metodă interactivă prin care să pot dezvolta logica copiilor mai puțin norocoși, aflați în grija statului. Este un proiect născut din empatie, creat pentru a le oferi un instrument de gândire printr-un design prietenos, cu doi ochi mari care clipesc.</p>
-            <p class="en">This robot emerged from a need: I wanted an interactive method to develop the logic of less fortunate children in state care. It is a project born out of empathy, created to provide them with a thinking tool through a friendly design, featuring two big blinking eyes.</p>
+            <p class="ro">Acest robot a apărut dintr-o nevoie: îmi doream o metodă interactivă prin care să pot dezvolta
+                logica copiilor mai puțin norocoși, aflați în grija statului. Este un proiect născut din empatie, creat
+                pentru a le oferi un instrument de gândire printr-un design prietenos, cu doi ochi mari care clipesc.
+            </p>
+            <p class="en">This robot emerged from a need: I wanted an interactive method to develop the logic of less
+                fortunate children in state care. It is a project born out of empathy, created to provide them with a
+                thinking tool through a friendly design, featuring two big blinking eyes.</p>
         </div>
         <div class="visual-side">
             <div class="media-box">
-                <img src="poza-cute.jpg" alt="Robot Cute">
+                <img src="poza-cute.webp" alt="Robot Cute">
             </div>
         </div>
     </section>
 
     <section id="grid" class="alt-bg reverse">
         <div class="text-side">
-            <h1 class="ro">Puzzle Navigation.</h1>
-            <h1 class="en">Puzzle Navigation.</h1>
-            <p class="ro">Copilul ghidează robotul de la punctul A la punctul B. În partea din spate, robotul are fante pentru a atașa un marker cu un elastic, astfel încât să deseneze prin intermediul comenzilor. Se creează o corelație directă între formele matematice și structura logică a codului, oferind o perspectivă mai amplă asupra învățării.</p>
-            <p class="en">The child guides the robot from point A to point B. On the back, the robot has slots to attach a marker with a rubber band, allowing it to draw through commands. This creates a direct correlation between mathematical shapes and the logical structure of the code, offering a broader perspective on learning.</p>
+            <h1 class="ro">Navigare prin puzzle</h1>
+            <h1 class="en">Puzzle Navigation</h1>
+            <p class="ro">Copilul ghidează robotul de la punctul A la punctul B. În partea din spate, robotul are fante
+                pentru a atașa un marker cu un elastic, astfel încât să deseneze prin intermediul comenzilor. Se creează
+                o corelație directă între formele matematice și structura logică a codului, oferind o perspectivă mai
+                amplă asupra învățării.</p>
+            <p class="en">The child guides the robot from point A to point B. On the back, the robot has slots to attach
+                a marker with a rubber band, allowing it to draw through commands. This creates a direct correlation
+                between mathematical shapes and the logical structure of the code, offering a broader perspective on
+                learning.</p>
         </div>
         <div class="visual-side">
             <div class="media-box">
-                <img src="poza-placa.jpg" alt="Grid Logic">
+                <img src="poza-placa.webp" alt="Grid Logic">
             </div>
         </div>
     </section>
 
     <section id="try">
         <div class="text-side">
-            <h1 class="ro">Încearcă-l acum.</h1>
-            <h1 class="en">Try it now.</h1>
-            <p class="ro">Deoarece Flutter nu suportă nativ Blockly, am integrat acest <strong>WebView</strong> care comunică bidirecțional cu aplicația și robotul. Joacă-te chiar aici cu simulatorul: trage blocurile de cod în spațiul de lucru si vezi cum comenzile prind viata!</p>
-            <p class="en">Since Flutter doesn't natively support Blockly, I've integrated this <strong>WebView</strong> for two-way communication between the app and the robot. Play right here with the simulator: drag the code blocks into the workspace and watch the commands come to life!</p>
+            <h1 class="ro">Încearcă-l acum</h1>
+            <h1 class="en">Try it now</h1>
+            <p class="ro">Deoarece Flutter nu suportă nativ Blockly, am integrat acest <strong>WebView</strong> care
+                comunică bidirecțional cu aplicația și robotul. Joacă-te chiar aici cu simulatorul: trage blocurile de
+                cod în spațiul de lucru si vezi cum comenzile prind viata!</p>
+            <p class="en">Since Flutter doesn't natively support Blockly, I've integrated this <strong>WebView</strong>
+                for two-way communication between the app and the robot. Play right here with the simulator: drag the
+                code blocks into the workspace and watch the commands come to life!</p>
 
             <div class="flow-diagram">
                 <span>Blockly Web</span> ➔ <span>WebView</span> ➔ <span>Flutter</span> ➔ <span>Arduino</span>
             </div>
-            <p class="hint ro">💡 Click o singură dată pe telefon pentru a activa simulatorul.</p>
-            <p class="hint en">💡 Click once on the phone to activate the simulator.</p>
+
         </div>
         <div class="visual-side">
             <div class="phone-container" id="phone-box">
                 <div class="iframe-overlay" id="overlay" onclick="activateIframe()"></div>
                 <div class="iframe-wrapper" id="blockly-view">
-                    <iframe src="blockly.html" id="blockly-iframe"
-                        scrolling="no"></iframe>
+                    <iframe src="blockly.html" id="blockly-iframe" scrolling="no"></iframe>
                 </div>
-                
+
                 <div class="matrix-container" id="matrix-view" style="display: none;">
                     <!-- Generated by JS -->
                 </div>
@@ -78,15 +91,17 @@
 
     <section id="hardware" class="alt-bg">
         <div class="text-side">
-            <h1 class="ro">Inginerie Deschisă.</h1>
-            <h1 class="en">Open Engineering.</h1>
-            <p class="ro">Totul este transparent pentru a încuraja curiozitatea. Elementele carcasei se îmbină prin tehnici inspirate din arhitectura japoneză, oferind modularitate și un timp scurt de printare 3D.</p>
-            <p class="en">Everything is transparent to encourage curiosity. The casing elements interlock using techniques inspired by Japanese architecture, offering modularity and a short 3D printing time.</p>
-      
+            <h1 class="ro">Inginerie Deschisă</h1>
+            <h1 class="en">Open Engineering</h1>
+            <p class="ro">Totul este transparent pentru a încuraja curiozitatea. Elementele carcasei se îmbină prin
+                tehnici inspirate din arhitectura japoneză, oferind modularitate și un timp scurt de printare 3D.</p>
+            <p class="en">Everything is transparent to encourage curiosity. The casing elements interlock using
+                techniques inspired by Japanese architecture, offering modularity and a short 3D printing time.</p>
+
         </div>
         <div class="visual-side tech-display">
             <div class="media-box schema">
-                <img src="schema_fritzing_bb.jpg" alt="Schema Fritzing">
+                <img src="schema_fritzing_bb.webp" alt="Schema Fritzing">
                 <div class="caption">Circuit Wiring / Schema Electronică</div>
             </div>
 
@@ -104,10 +119,12 @@
 
     <section id="action" class="reverse">
         <div class="text-side">
-            <h1 class="ro">Robotul în Acțiune.</h1>
-            <h1 class="en">Robot in Action.</h1>
-            <p class="ro">Vezi cum comenzile digitale se transformă în mișcare fizică. Este momentul în care teoria devine practică, iar logica din spatele ecranului prinde viață sub ochii tăi.</p>
-            <p class="en">Watch how digital commands transform into physical movement. It's the moment when theory becomes practice, and the logic behind the screen comes to life before your eyes.</p>
+            <h1 class="ro">Robotul în Acțiune</h1>
+            <h1 class="en">Robot in Action</h1>
+            <p class="ro">Vezi cum comenzile digitale se transformă în mișcare fizică. Este momentul în care teoria
+                devine practică, iar logica din spatele ecranului prinde viață sub ochii tăi.</p>
+            <p class="en">Watch how digital commands transform into physical movement. It's the moment when theory
+                becomes practice, and the logic behind the screen comes to life before your eyes.</p>
         </div>
         <div class="visual-side">
             <div class="media-box">
@@ -120,10 +137,14 @@
 
     <section id="final">
         <div class="text-side">
-            <h1 class="ro">Totul prinde viață.</h1>
-            <h1 class="en">Everything comes alive.</h1>
-            <p class="ro">Am dezvoltat un robot educațional ieftin comparativ cu alternativele comerciale, folosind un șasiu ce amintește de personajele din Minecraft. Sunetele simpatice emise de buzzer și componentele la vedere stârnesc curiozitatea și invită la idei de îmbunătățire.</p>
-            <p class="en">I developed an affordable educational robot compared to commercial alternatives, using a chassis reminiscent of Minecraft characters. The cute sounds emitted by the buzzer and the exposed components spark curiosity and invite ideas for improvement.</p>
+            <h1 class="ro">Totul prinde viață</h1>
+            <h1 class="en">Everything comes alive</h1>
+            <p class="ro">Am dezvoltat un robot educațional ieftin comparativ cu alternativele comerciale, folosind un
+                șasiu ce amintește de personajele din Minecraft. Sunetele simpatice emise de buzzer și componentele la
+                vedere stârnesc curiozitatea și invită la idei de îmbunătățire.</p>
+            <p class="en">I developed an affordable educational robot compared to commercial alternatives, using a
+                chassis reminiscent of Minecraft characters. The cute sounds emitted by the buzzer and the exposed
+                components spark curiosity and invite ideas for improvement.</p>
         </div>
         <div class="visual-side">
             <div class="media-box">
