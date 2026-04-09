@@ -5,10 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LogicBot</title>
+    <meta name="description" content="Descoperă LogicBot: Un robot educațional interactiv care îi ajută pe cei mici să dezvolte gândirea critică și logica prin programare vizuală cu Blockly și Arduino.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://blockly-demo.appspot.com">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
-
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet"></noscript>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js" defer></script>
 </head>
 
 <body class="lang-ro">
@@ -20,6 +24,7 @@
         </div>
     </header>
 
+    <main>
     <section id="hero">
         <div class="text-side">
             <h1 class="ro">Un partener în lumea logicii.</h1>
@@ -34,7 +39,7 @@
         </div>
         <div class="visual-side">
             <div class="media-box">
-                <img src="poza-cute.webp" alt="Robot Cute">
+                <img src="poza-cute.webp" alt="Robot Cute" width="541" height="406" fetchpriority="high">
             </div>
         </div>
     </section>
@@ -54,7 +59,7 @@
         </div>
         <div class="visual-side">
             <div class="media-box">
-                <img src="poza-placa.webp" alt="Grid Logic">
+                <img src="poza-placa.webp" alt="Grid Logic" width="541" height="714" loading="lazy">
             </div>
         </div>
     </section>
@@ -79,7 +84,7 @@
             <div class="phone-container" id="phone-box">
                 <div class="iframe-overlay" id="overlay" onclick="activateIframe()"></div>
                 <div class="iframe-wrapper" id="blockly-view">
-                    <iframe src="blockly.html" id="blockly-iframe" scrolling="no"></iframe>
+                    <iframe src="blockly.html" id="blockly-iframe" scrolling="no" title="Blockly Logic Simulator Playground"></iframe>
                 </div>
 
                 <div class="matrix-container" id="matrix-view" style="display: none;">
@@ -101,7 +106,7 @@
         </div>
         <div class="visual-side tech-display">
             <div class="media-box schema">
-                <img src="schema_fritzing_bb.webp" alt="Schema Fritzing">
+                <img src="schema_fritzing_bb.webp" alt="Schema Fritzing" width="500" height="344" loading="lazy">
                 <div class="caption">Circuit Wiring / Schema Electronică</div>
             </div>
 
@@ -128,8 +133,9 @@
         </div>
         <div class="visual-side">
             <div class="media-box">
-                <video autoplay muted loop playsinline>
+                <video autoplay muted loop playsinline width="100%" height="auto">
                     <source src="video-functionare.mp4" type="video/mp4">
+                    <track kind="captions" src="captions.vtt" srclang="ro" label="Fără sunet">
                 </video>
             </div>
         </div>
@@ -148,14 +154,16 @@
         </div>
         <div class="visual-side">
             <div class="media-box">
-                <video autoplay muted loop playsinline preload="auto">
+                <video autoplay muted loop playsinline preload="auto" width="100%" height="auto">
                     <source src="video-prezentare.mp4" type="video/mp4">
+                    <track kind="captions" src="captions.vtt" srclang="ro" label="Fără sunet">
                 </video>
             </div>
         </div>
     </section>
+    </main>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 
 </html>
