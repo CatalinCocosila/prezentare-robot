@@ -64,21 +64,49 @@ function updateRobotPosition() {
     }
 }
 
-// Expunem comenzile la un nivel global ca să poată fi apelați din consolă
+// Coadă pentru a executa comenzile pas cu pas, cu întârziere (animație)
+let commandQueue = [];
+let isExecuting = false;
+
 window.sendCommand = function(cmd) {
-    console.log("Comandă executată în simulator:", cmd);
+    console.log("Comandă adăugată în coadă:", cmd);
+    commandQueue.push(cmd);
+    processQueue();
+};
+
+function processQueue() {
+    if (isExecuting || commandQueue.length === 0) return;
     
-    if (cmd === "UP" && robotY > 0) {
-        robotY--;
-    } else if (cmd === "DOWN" && robotY < matrixRows - 1) {
-        robotY++;
-    } else if (cmd === "LEFT" && robotX > 0) {
-        robotX--;
-    } else if (cmd === "RIGHT" && robotX < matrixCols - 1) {
-        robotX++;
-    }
+    isExecuting = true;
+    const cmd = commandQueue.shift();
+    
+    if (cmd === "UP" && robotY > 0) robotY--;
+    else if (cmd === "DOWN" && robotY < matrixRows - 1) robotY++;
+    else if (cmd === "LEFT" && robotX > 0) robotX--;
+    else if (cmd === "RIGHT" && robotX < matrixCols - 1) robotX++;
     
     updateRobotPosition();
+    
+    // Așteptăm 600ms înainte de a executa următoarea comandă pentru a vedea mutarea
+    setTimeout(() => {
+        isExecuting = false;
+        processQueue();
+    }, 600);
+}
+
+// Funcție ajutătoare pentru a prelua codul text din consolă
+// Apeleează în consolă: executeConsoleCode(`...paste aici...`)
+window.executeConsoleCode = function(codeString) {
+    if(!codeString) return;
+    try {
+        // Evaluăm codul care definește window.runCommands
+        eval(codeString);
+        if (typeof window.runCommands === "function") {
+            window.runCommands();
+        }
+    } catch (e) {
+        console.error("Eroare la evaluarea codului:", e);
+    }
 };
 
 window.UP = () => window.sendCommand("UP");
