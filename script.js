@@ -29,7 +29,7 @@ let robotX = 0; // coloana curentă (0 to 3)
 let robotY = matrixRows - 1; // rândul curent (începem de jos stânga de ex)
 
 function initMatrix() {
-    const container = document.getElementById('matrix-container');
+    const container = document.getElementById('matrix-view');
     if (!container) return;
     
     container.innerHTML = '';
@@ -68,16 +68,45 @@ function updateRobotPosition() {
 let commandQueue = [];
 let isExecuting = false;
 
+function showMatrix() {
+    document.getElementById('blockly-view').style.display = 'none';
+    document.getElementById('matrix-view').style.display = 'grid';
+    // Oprim scroll-ul iframe-ului accidentele in timp ce ruleaza
+    document.getElementById('overlay').classList.add('active');
+}
+
+function hideMatrix() {
+    document.getElementById('matrix-view').style.display = 'none';
+    document.getElementById('blockly-view').style.display = 'block';
+    // Reactivam interacțiunea
+    document.getElementById('overlay').classList.remove('active');
+}
+
 window.sendCommand = function(cmd) {
     console.log("Comandă adăugată în coadă:", cmd);
     commandQueue.push(cmd);
-    processQueue();
+    
+    if (!isExecuting) {
+        isExecuting = true;
+        showMatrix();
+        
+        // Un mic delay (300ms) înainte să înceapă miscarea, ca sa vadă utizatorul matricea apărând
+        setTimeout(() => {
+            processQueue();
+        }, 300);
+    }
 };
 
 function processQueue() {
-    if (isExecuting || commandQueue.length === 0) return;
+    if (commandQueue.length === 0) {
+        // Am terminat comenzile. Așteptăm puțin pe matrice finală curată, apoi ne întoarcem
+        setTimeout(() => {
+            hideMatrix();
+            isExecuting = false;
+        }, 1500); // 1.5s delay la final
+        return;
+    }
     
-    isExecuting = true;
     const cmd = commandQueue.shift();
     
     if (cmd === "UP" && robotY > 0) robotY--;
@@ -89,7 +118,6 @@ function processQueue() {
     
     // Așteptăm 600ms înainte de a executa următoarea comandă pentru a vedea mutarea
     setTimeout(() => {
-        isExecuting = false;
         processQueue();
     }, 600);
 }
@@ -99,7 +127,6 @@ function processQueue() {
 window.executeConsoleCode = function(codeString) {
     if(!codeString) return;
     try {
-        // Evaluăm codul care definește window.runCommands
         eval(codeString);
         if (typeof window.runCommands === "function") {
             window.runCommands();
