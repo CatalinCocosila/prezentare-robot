@@ -1,1 +1,6 @@
 *.py
+*.log
+node_modules/
+compress.js
+package.json
+package-lock.json
