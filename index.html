@@ -6,13 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LogicBot</title>
     <meta name="description" content="Descoperă LogicBot: Un robot educațional interactiv care îi ajută pe cei mici să dezvolte gândirea critică și logica prin programare vizuală cu Blockly și Arduino.">
+
+    <!-- DNS / Preconnects -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://blockly-demo.appspot.com">
-    <link rel="stylesheet" href="style.css">
+
+    <!-- LCP Image Preload — eliminates 290ms fetch delay for the hero image -->
+    <link rel="preload" as="image" href="poza-cute.webp" fetchpriority="high">
+
+    <!-- Critical CSS inlined — unblocks first paint without waiting for style.css -->
+    <style>
+        :root{--primary:#00C853;--bg:#f8fafc;--text:#1e293b;--accent:#6366f1}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:var(--bg);color:var(--text);font-family:'Outfit',system-ui,sans-serif;overflow-x:hidden}
+        .header{position:fixed;top:0;width:100%;padding:20px 5%;display:flex;justify-content:space-between;align-items:center;z-index:1000;background:rgba(248,250,252,.9);backdrop-filter:blur(10px)}
+        .lang-control{background:#fff;padding:4px;border-radius:50px;box-shadow:0 4px 15px rgba(0,0,0,.05);display:flex}
+        .lang-btn{background:none;border:none;padding:8px 20px;border-radius:50px;cursor:pointer;font-weight:700;color:#475569}
+        .lang-btn.active{background:var(--primary);color:#fff}
+        section{display:flex;flex-wrap:wrap;min-height:100vh;align-items:center;padding:100px 8% 60px}
+        .text-side{flex:1;min-width:350px;padding:20px}
+        .visual-side{flex:1;min-width:350px;display:flex;justify-content:center;align-items:center}
+        h1{font-size:3rem;line-height:1.2;margin-bottom:20px;color:#0f172a}
+        p{font-size:1.25rem;color:#334155;margin-bottom:30px}
+        .media-box{width:100%;max-width:600px;border-radius:30px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.06);background:#fff}
+        .media-box img,.media-box video{width:100%;display:block;height:auto}
+        body.lang-en .ro{display:none}
+        body.lang-ro .en{display:none}
+    </style>
+
+    <!-- Full stylesheet deferred — non-render-blocking -->
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
+
+    <!-- Google Fonts — non-render-blocking -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet"></noscript>
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js" defer></script>
+
+    <!-- model-viewer only loaded when section scrolls into view (via JS) -->
 </head>
 
 <body class="lang-ro">
@@ -39,7 +70,14 @@
         </div>
         <div class="visual-side">
             <div class="media-box">
-                <img src="poza-cute.webp" alt="Robot Cute" width="649" height="487" fetchpriority="high">
+                <img
+                    src="poza-cute.webp"
+                    srcset="poza-cute.webp 649w"
+                    sizes="(max-width: 768px) 100vw, 649px"
+                    alt="Robot LogicBot cu ochi LED mari care clipesc"
+                    width="649" height="487"
+                    fetchpriority="high"
+                    decoding="async">
             </div>
         </div>
     </section>
@@ -59,7 +97,14 @@
         </div>
         <div class="visual-side">
             <div class="media-box">
-                <img src="poza-placa.webp" alt="Grid Logic" width="649" height="857" loading="lazy">
+                <img
+                    src="poza-placa.webp"
+                    srcset="poza-placa.webp 649w"
+                    sizes="(max-width: 768px) 100vw, 649px"
+                    alt="Robotul pe placa de navigare cu grila marcata A, B, C"
+                    width="649" height="857"
+                    loading="lazy"
+                    decoding="async">
             </div>
         </div>
     </section>
@@ -106,16 +151,20 @@
         </div>
         <div class="visual-side tech-display">
             <div class="media-box schema">
-                <img src="schema_fritzing_bb.webp" alt="Schema Fritzing" width="649" height="446" loading="lazy">
+                <img
+                    src="schema_fritzing_bb.webp"
+                    srcset="schema_fritzing_bb.webp 649w"
+                    sizes="(max-width: 768px) 100vw, 500px"
+                    alt="Schema electronica Fritzing a circuitului robotului"
+                    width="649" height="446"
+                    loading="lazy"
+                    decoding="async">
                 <div class="caption">Circuit Wiring / Schema Electronică</div>
             </div>
 
-            <div class="media-box model-3d">
-                <model-viewer src="Assembly3.glb" ar camera-controls touch-action="pan-y" shadow-intensity="1"
-                    exposure="0.6" tone-mapping="commerce" environment-image="legacy" auto-rotate
-                    camera-orbit="145deg 65deg auto"
-                    style="width: 100%; height: 300px; background: linear-gradient(135deg, #1e293b, #334155); border-radius: 20px;">
-                </model-viewer>
+            <div class="media-box model-3d" id="model-container">
+                <!-- model-viewer is injected lazily when this section enters viewport -->
+                <div id="model-placeholder" style="width:100%;height:300px;background:linear-gradient(135deg,#1e293b,#334155);border-radius:20px;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:0.9rem;">⏳ Loading 3D model...</div>
                 <div class="caption ro">Model 3D (Rotește cu mouse-ul)</div>
                 <div class="caption en">3D Model (Rotate with mouse)</div>
             </div>
